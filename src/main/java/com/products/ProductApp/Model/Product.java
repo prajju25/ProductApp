@@ -3,22 +3,31 @@ package com.products.ProductApp.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Product")
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id;
+    private Long id;
     @Column(name = "Product_name")
     private String productName;
     @Column(name = "Product_type")
     private String productType;
     @Column(name = "Product_cost")
     private int productCost;
-	public int getId() {
+    
+    protected Product(){}
+    
+	public Product(Long id, String productName, String productType, int productCost) {
+		this.id = id;
+		this.productName = productName;
+		this.productType = productType;
+		this.productCost = productCost;
+	}
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getProductName() {

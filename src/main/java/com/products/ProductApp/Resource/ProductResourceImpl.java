@@ -15,10 +15,18 @@ public class ProductResourceImpl implements ProductResource{
 	ProductService service;
 	
 	public List<Product> searchProduct(String query) {		
-		return service.filterProduct(query);
+		List<Product> product = service.filterProduct(query);
+		if(product != null && !product.isEmpty()) {
+			return product;
+		}
+		return null;
 	}
 	
 	public List<Product> fetchAllProduct(){
-		return service.fetchProducts();
+		List<Product> product = service.fetchProducts();
+		if(product != null && !product.isEmpty()) {
+			return product;
+		}
+		return null;
 	}
 }
